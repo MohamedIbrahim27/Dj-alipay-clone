@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+        
+    </head>
+    <body>
+        <div class="main">
+            <div class="chat">
+                <p>Hello Mohamed</p>
+                <button id="scanButton" style="font-size: 15px;
+                background: aqua;
+                padding: 7px;padding-bottom: 0;"><span style="font-size: 35px;padding-top: 7px;
+                    display: block;"><i class="fa-solid fa-expand fa-2xl"></i></span>scan</button>
+                <a class="a-chat" href=""><i style="display: block;
+                    text-align: center;" class="fa-solid fa-message"></i> Chat</a>
+            </div>
+            <div class="transform-you">
+                <p>camera</p>
+                <div class="camera-scan">
+
+                </div>
+            </div>
+            <a href="" class="transform-you">
+                <div style="text-align: center;    border-right: 1px solid #ff2525;    padding-right: 10px;">
+                    <img class="img" src="person_1.jpg" alt="">
+                    <h3>mohamed</h3>
+                </div>
+                    
+                <h4 style="align-items: center;margin-left:12px;
+                display: flex;">trasfared 3000$ to ahmed</h4>
+            </a>
+            <a href="" class="transform-to">
+                <div style="text-align: center;    border-right: 1px solid #ff2525;    padding-right: 10px;">
+                    <img class="img" src="person_2.jpg" alt="">
+                    <h3>mohamed</h3>
+                </div>
+                <h4 style="align-items: center;margin-left:12px;
+                display: flex;">received 3000$ form mahmoud</h4>
+            </a>
+            <div class="expenses">
+                <a class="wallet" href=""><i style="display: block;text-align: center;" class="fa-solid fa-sack-dollar"></i>Wallet</a>
+                <div class="qrcode">
+                    <p style="    font-size: 30px;">Money</p>
+                    <div style="text-align: center;
+                    font-size: 14px;">
+                        <a href="">Pay</a>
+                        <span>/</span>
+                        <a href="">Recive</a>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a style="    display: block;margin-bottom:5px;" href=""><i style="font-size: 21px;" class="fa-brands fa-battle-net"></i> day Expenses</a>
+                    <a style="    display: block;" href=""><i style="font-size: 21px;" class="fa-brands fa-battle-net"></i> Monthly Expenses</a>
+                </div>
+            </div>
+        </div>
+        <script>
+        // Access the button and initialize Instascan
+        const scanButton = document.getElementById('scanButton');
+        const scanner = new Instascan.Scanner({ video: document.createElement('video') });
+
+        // Add a listener to the button click event
+        scanButton.addEventListener('click', function () {
+            // Start scanning when the button is clicked
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    const videoElement = scanner.video;
+                    document.querySelector('.camera-scan').appendChild(videoElement);
+                    scanner.start(cameras[0]); // Use the first camera
+                } else {
+                    alert('No cameras found.');
+                }
+            }).catch(function (e) {
+                console.error(e);
+                alert('Error accessing the camera.');
+            });
+        });
+
+        // Add a listener to the scanner for when a QR code is scanned
+        scanner.addListener('scan', function (content) {
+            
+            window.location.href = content;
+            window.open(content, '_blank');
+            scanner.stop();
+        });
+
+        // Stop scanning when the document is unloaded
+        window.addEventListener('unload', function () {
+            scanner.stop();
+        });
+    </script>
+    </body>
+</html>

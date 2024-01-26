@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <style>
+            svg{
+                background-color: aliceblue;
+                height: 100%;
+                width: 100%;
+            }
+        </style>
+        {% if request.path == '/pay' %}
+            <div class="main" style="width: 30%;">
+                <p style="text-align: center;font-size: 33px;
+                margin-bottom: 17px;">Pay</p>
+
+                <div style="    text-align: center;    
+                justify-content: center;
+                margin: 0 auto;">
+                    <img src="data:image/png;base64,{{ img_str }}" alt="QR Code">
+                </div>
+                <p style="font-size: 17px;
+                text-align: center;">Scan the QR code to Pay Money</p>
+            </div>
+        {% elif request.path == '/trasform' %}
+            <div class="main" style="width: 30%;">
+                <p style="text-align: center;font-size: 33px;
+                margin-bottom: 17px;">Recive</p>
+
+                <div style="    text-align: center;    
+                justify-content: center;
+                margin: 0 auto;">
+                    <img src="data:image/png;base64,{{ img_str }}" alt="QR Code">
+                </div>
+                <p style="font-size: 17px;
+                text-align: center;">Scan the QR code to Recive Money</p>
+            </div>
+        {% endif %}
+    </body>
+</html>

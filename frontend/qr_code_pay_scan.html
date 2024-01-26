@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main" style="width: 30%;">
+        <p style="text-align: center;display: flex;
+            justify-content: center;
+            margin-bottom: 17px;">pay</p>
+        <div style="    text-align: center;display: flex;
+            justify-content: center;">
+            <input style="height: 35px;" type="number">
+        </div>
+        <p style="text-align: center;display: flex;
+            justify-content: center;
+            margin-bottom: 17px;">Enter ypur password</p>
+        <div style="    text-align: center;display: flex;
+            justify-content: center;">
+            <input style="height: 35px;" type="password">
+        </div>
+        <div style="padding-top: 7px;padding-bottom: 7px;">
+            <table class="calculator">
+                <tr>
+                    <!-- display() function displays the value of clicked button -->
+                    <td style="width: calc(100% /3);"> <input type="button" value="1" onclick="display('1')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="2" onclick="display('2')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="3" onclick="display('3')" /> </td>
+                </tr>
+                <tr>
+                    <td style="width: calc(100% /3);"> <input type="button" value="4" onclick="display('4')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="5" onclick="display('5')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="6" onclick="display('6')" /> </td>
+                </tr>
+                <tr>
+                    <td style="width: calc(100% /3);"> <input type="button" value="7" onclick="display('7')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="8" onclick="display('8')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="9" onclick="display('9')" /> </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: calc(100% /3);"> <input type="button" value="0" onclick="display('0')" /> </td>
+                    <td style="width: calc(100% /3);"> <input type="button" value="Pay" onclick="display('Pay')" /> </td>
+                </tr>
+            </table>
+        </div>
+        <p style="font-size: 17px;display: flex;
+            justify-content: center;
+            text-align: center;">🤍</p>
+    </div>
+</body>
+
+</html>
